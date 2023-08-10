@@ -149,6 +149,7 @@ function calculateRoute(destination) {
 }
 
 // FUNCTION:  snap to road API
+
 function snapToRoads(path) {
   return new Promise((resolve, reject) => {
     const pathString = path
@@ -177,6 +178,5 @@ function snapToRoads(path) {
       });
   });
 }
-
 
 window.addEventListener("load", initMap);
