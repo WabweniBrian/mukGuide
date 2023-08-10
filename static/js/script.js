@@ -88,6 +88,65 @@ function showCurrentLocation() {
 }
 
 // FUNCTION:  calculate Route
+function calculateRoute(destination) {
+  if (!destination) {
+    return;
+  }
+
+  const userLocation = marker.getPosition();
+  const request = {
+    origin: userLocation,
+    destination: destination,
+    travelMode: google.maps.TravelMode.DRIVING,
+  };
+
+  directionsService.route(request, (result, status) => {
+    if (status === google.maps.DirectionsStatus.OK) {
+      // Use the overview path for Snap-to-Roads API
+      const overviewPath = result.routes[0].overview_path;
+
+      // Use Snap-to-Roads API to get accurate path
+      snapToRoads(overviewPath)
+        .then((snappedPath) => {
+          // Update directionsRenderer with snapped path
+          result.routes[0].overview_path = snappedPath;
+          directionsRenderer.setDirections(result);
+
+          // Add markers for start and end points (only if they are not added already)
+          startMarker = new google.maps.Marker({
+            position: userLocation,
+            map: map,
+            title: "Your Location",
+            icon: {
+              url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png", // Green pin icon
+            },
+          });
+
+          if (endMarker) {
+            endMarker.setMap(null); // Remove existing end marker
+          }
+
+          endMarker = new google.maps.Marker({
+            position: destination,
+            map: map,
+            title: "Destination",
+            icon: {
+              url: "https://maps.google.com/mapfiles/ms/icons/green-dot.png", // Green pin icon
+            },
+          });
+
+          // Center the map on the route
+          const bounds = new google.maps.LatLngBounds();
+          bounds.extend(userLocation);
+          bounds.extend(destination);
+          map.fitBounds(bounds);
+        })
+        .catch((error) => {
+          console.error("Error in Snap-to-Roads API:", error);
+        });
+    }
+  });
+}
 
 // FUNCTION:  snap to road API
 
