@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Makerere University Campus Map</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/styles.css' %}"
+    />
+  </head>
+  <body>
+    <div id="map" class="map"></div>
+
+    {% comment %} Navbar {% endcomment %}
+    <div class="nav-wrapper">
+      <div class="navbar">
+        <a class="navbar-brand" href="/">Muk<span>Guide</span></a>
+        <div class="searchbar">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search for a place in Makerere"
+            class="search"
+          />
+          <button id="calculateRouteButton" class="btn">Find</button>
+        </div>
+      </div>
+    </div>
+
+    {% comment %} Popular Places {% endcomment %}
+    <ul id="popularPlaces" class="popular">
+      <h1>Popular Places in Makerere</h1>
+      <div class="places">
+        <li>
+          <a href="#" data-lat="0.33346" data-lng="32.56956">Senate Building</a>
+        </li>
+        <li>
+          <a href="#" data-lat="0.3316445014464207" data-lng="32.57059288032013"
+            >College of Computing and Information Sciences (COCIS)</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            data-lat="0.33632805919624326"
+            data-lng="32.56577125148335"
+            >College Of Natural Sciences (CONAS)</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            data-lat="0.33685360076717846"
+            data-lng="32.56415332264694"
+            >College of engineering design art and technology (CEDAT)</a
+          >
+        </li>
+        <li>
+          <a href="#" data-lat="0.3325542154586639" data-lng="32.5674426361369"
+            >College of Humanities and Social Sciences (CHUSS)</a
+          >
+        </li>
+        <li>
+          <a href="#" data-lat="0.3308715874364665" data-lng="32.56680655333977"
+            >Mary Stuart Hall</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            data-lat="0.3377828726496021"
+            data-lng=" 32.56851033984956"
+            >Africa Hall</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            data-lat="0.3361938159433546"
+            data-lng=" 32.569295564973665"
+            >Nkrumah Hall</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            data-lat="0.33214795874613173"
+            data-lng=" 32.56604218032003"
+            >Lumumba Hall</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            data-lat="0.33316235871975186"
+            data-lng="32.56644772635959"
+          >
+            centenary bank makerere branch</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            data-lat="0.3296653965667334"
+            data-lng=" 32.57202822191571"
+            >Makerere main gate</a
+          >
+        </li>
+        <li>
+          <a href="#" data-lat="0.3353301265069686" data-lng="32.56378847539456"
+            >Makerere western gate</a
+          >
+        </li>
+      </div>
+    </ul>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    {% comment %} Map Script {% endcomment %}
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYDmNQIKb6rGbum5292A599Ug1Wlgk6eI&libraries=places&callback=initMap"
+      async
+      defer
+    ></script>
+  </body>
+</html>
