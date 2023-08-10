@@ -10,6 +10,8 @@ function initMap() {
     zoom: 16,
   });
 
+
+  //get an instance of the find button
   const searchInput = document.getElementById("searchInput");
 
   const autocomplete = new google.maps.places.Autocomplete(searchInput);
