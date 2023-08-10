@@ -91,4 +91,33 @@ function showCurrentLocation() {
 
 // FUNCTION:  snap to road API
 
+function snapToRoads(path) {
+  return new Promise((resolve, reject) => {
+    const pathString = path
+      .map((point) => point.lat() + "," + point.lng())
+      .join("|");
+    const apiUrl = `https://roads.googleapis.com/v1/snapToRoads?path=${pathString}&key=AIzaSyCYDmNQIKb6rGbum5292A599Ug1Wlgk6eI`;
+
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.snappedPoints && data.snappedPoints.length > 0) {
+          const snappedPath = data.snappedPoints.map(
+            (point) =>
+              new google.maps.LatLng(
+                point.location.latitude,
+                point.location.longitude
+              )
+          );
+          resolve(snappedPath);
+        } else {
+          reject(new Error("Snap-to-Roads API response is empty."));
+        }
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+}
+
 window.addEventListener("load", initMap);
