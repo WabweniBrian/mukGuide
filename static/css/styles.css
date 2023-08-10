@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black; 
+    font-family: "Poppins", sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.map{
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+z-index: -1;
+}
+
+.nav-wrapper{
+    max-width: 1000px;
+    margin: auto;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .9rem 2rem;
+    gap: 3rem;
+}
+
+.navbar a{
+    font-size: 2rem;
+    color: inherit;
+    padding: 1rem;
+    border-radius: 2rem;
+    background: white;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+}
+
+.navbar a span{
+    color: #36a827;
+}
+
+.searchbar{
+    flex: 1;
+    position: relative;
+}
+
+.search{
+    padding: 1rem 1.5rem;
+    padding-right: 3rem !important;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    background: white;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: .5rem;
+    border: none;
+    outline: none;
+    background-color: #36a827;
+    padding: 0.6rem 1.5rem;
+    font-size: inherit;
+    font-family: inherit;
+    color: #fff;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: rgba(54, 168, 39, 0.8);  
+}
+
+.popular{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    border-radius: 1rem;
+    background: white;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+    position: absolute;
+    left: 0;
+    top: 5rem;
+    margin: 1rem;
+    margin-top: 2rem;
+}
+
+.popular .places{
+    height: 70vh;
+    overflow: auto;
+}
+
+.popular .places li{
+    list-style: none;
+}
+
+.popular .places li a{
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    display: block;
+    margin: 1rem 0;
+}
