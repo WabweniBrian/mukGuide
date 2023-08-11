@@ -21,7 +21,7 @@ function initMap() {
     map: map,
     suppressMarkers: true,
     polylineOptions: {
-      strokeColor: "#00FF00",
+      strokeColor: "#00FF00", //polylie color
     },
   });
 
