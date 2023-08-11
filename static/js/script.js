@@ -183,4 +183,5 @@ function snapToRoads(path) {
   });
 }
 
+
 window.addEventListener("load", initMap);
