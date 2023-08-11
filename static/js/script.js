@@ -36,6 +36,7 @@ function initMap() {
       calculateRoute(place.geometry.location);
     }
   });
+  
 
   const popularPlaces = document.querySelectorAll("#popularPlaces a");
   popularPlaces.forEach((place) => {
