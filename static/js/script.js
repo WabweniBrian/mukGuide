@@ -96,6 +96,7 @@ function calculateRoute(destination) {
     return;
   }
 
+  //gettig the users current location
   const userLocation = marker.getPosition();
   const request = {
     origin: userLocation,
